@@ -4,23 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M2 — Sistema de medição comportamental</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,400&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 
 <!-- ESTILOS COMPARTILHADOS -->
 <style>
 :root {
-  --paper:#f4f1ea;--ink:#1a1a18;--green:#1e4034;--green2:#2d6a4f;
-  --gold:#b5872a;--gold-muted:#a08a5f;--muted:#6b6860;--rule:#d8d4cb;--white:#ffffff;
+  --paper:#FBF9F4;--ink:#2A2118;--green:#045c2e;--green2:#007600;
+  --gold:#E8A93A;--gold-muted:#c9a565;--muted:#7C8A7F;--rule:#EFEAE0;--white:#ffffff;
+  --radius:18px;--radius-sm:12px;
+  --verde-claro:#E4F0E1;--gold-claro:#FBF0DA;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;font-weight:300;line-height:1.7;}
+body{background:var(--paper);color:var(--ink);font-family:'Nunito',sans-serif;font-weight:400;line-height:1.7;-webkit-font-smoothing:antialiased;}
 
 /* NAV */
 .m2-nav{
   position:sticky;top:0;z-index:100;background:var(--green);
   border-bottom:2px solid var(--ink);padding:0 48px;
   display:flex;align-items:center;justify-content:space-between;
-  height:100px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;
+  height:100px;font-family:'Nunito',sans-serif;font-size:11px;letter-spacing:.12em;
 }
 .m2-nav a{color:rgba(244,241,234,.7);text-decoration:none;text-transform:uppercase;transition:color .15s;cursor:pointer;}
 .m2-nav a:hover,.m2-nav a.active{color:var(--paper);}
@@ -35,23 +37,24 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
 
 /* INDEX */
 .hero{padding:96px 48px 80px;border-bottom:1px solid var(--rule);max-width:900px;margin:0 auto;}
-.hero-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
-.hero h1{font-family:'Fraunces',serif;font-size:clamp(36px,7vw,68px);font-weight:700;line-height:1.0;letter-spacing:-.02em;color:var(--green);margin-bottom:28px;}
+.hero-label{font-family:'Nunito',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
+.hero h1{font-family:'Baloo 2',sans-serif;font-size:clamp(36px,7vw,68px);font-weight:700;line-height:1.0;letter-spacing:-.02em;color:var(--green);margin-bottom:28px;}
 .hero h1 em{font-weight:300;font-style:italic;color:var(--green2);}
 .hero-sub{font-size:17px;color:var(--muted);max-width:480px;line-height:1.7;margin-bottom:0;}
 .hero-sub strong{color:var(--ink);font-weight:400;}
 .index-cards{max-width:900px;margin:0 auto;padding:56px 48px 80px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-.index-card{background:var(--white);border:1px solid var(--rule);border-top:3px solid var(--green2);padding:28px 24px 24px;cursor:pointer;transition:border-top-color .2s,box-shadow .2s;}
-.index-card:hover{border-top-color:var(--gold);box-shadow:0 4px 20px rgba(0,0,0,.07);}
-.index-card.gold{border-top-color:var(--gold);}
-.ic-icon{font-size:40px;line-height:1;margin-bottom:12px;display:block;}
-.ic-title{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--green);margin-bottom:10px;line-height:1.2;}
+.index-card{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);padding:28px 24px 24px;cursor:pointer;box-shadow:0 3px 14px rgba(42,33,24,.05);transition:transform .2s,box-shadow .2s;}
+.index-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(42,33,24,.09);}
+.index-card.gold{background:var(--gold-claro);border-color:var(--gold);}
+.ic-icon{width:64px;height:64px;border-radius:50%;background:var(--verde-claro);display:flex;align-items:center;justify-content:center;font-size:36px;line-height:1;margin-bottom:16px;box-shadow:0 3px 10px rgba(42,33,24,.06);}
+.index-card.gold .ic-icon{background:var(--white);}
+.ic-title{font-family:'Baloo 2',sans-serif;font-size:22px;font-weight:700;color:var(--green);margin-bottom:10px;line-height:1.2;}
 .ic-desc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px;}
-.ic-punch{font-family:'Fraunces',serif;font-size:22px;font-style:italic;font-weight:400;color:var(--green);text-align:center;margin:16px 0 20px;line-height:1.3;}
-.body-punch{font-family:'Fraunces',serif;font-size:22px;font-style:italic;font-weight:400;color:var(--green);text-align:center;margin:24px auto;line-height:1.3;max-width:520px;}
-.ic-cta{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--green2);}
+.ic-punch{font-family:'Baloo 2',sans-serif;font-size:22px;font-style:italic;font-weight:400;color:var(--green);text-align:center;margin:16px 0 20px;line-height:1.3;}
+.body-punch{font-family:'Baloo 2',sans-serif;font-size:22px;font-style:italic;font-weight:400;color:var(--green);text-align:center;margin:24px auto;line-height:1.3;max-width:520px;}
+.ic-cta{font-family:'Nunito',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--green2);}
 .footer-quote{max-width:900px;margin:0 auto;padding:0 48px 72px;}
-.quote-text{font-family:'Fraunces',serif;font-size:clamp(16px,2.5vw,22px);font-weight:300;font-style:italic;color:var(--muted);border-top:1px solid var(--rule);padding-top:32px;line-height:1.5;}
+.quote-text{font-family:'Baloo 2',sans-serif;font-size:clamp(16px,2.5vw,22px);font-weight:300;font-style:italic;color:var(--muted);border-top:1px solid var(--rule);padding-top:32px;line-height:1.5;}
 .quote-text strong{color:var(--green);font-weight:700;font-style:normal;}
 
 
@@ -68,7 +71,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   body {
     background: var(--paper);
     color: var(--ink);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-weight: 300;
     line-height: 1.7;
     padding: 0 0 80px;
@@ -86,7 +89,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   }
 
   h1 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Baloo 2', sans-serif;
     font-size: clamp(32px, 6vw, 56px);
     font-weight: 700;
     line-height: 1.05;
@@ -111,7 +114,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   section:last-child { border-bottom: none; }
 
   .section-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 10px;
     letter-spacing: .2em;
     text-transform: uppercase;
@@ -120,7 +123,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   }
 
   h2 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Baloo 2', sans-serif;
     font-size: clamp(22px, 4vw, 32px);
     font-weight: 300;
     font-style: italic;
@@ -171,7 +174,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   }
 
   .final-quote {
-    font-family: 'Fraunces', serif;
+    font-family: 'Baloo 2', sans-serif;
     font-size: clamp(24px, 5vw, 42px);
     font-weight: 700;
     color: var(--green);
@@ -186,7 +189,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     margin-top: 20px;
     font-size: 14px;
     color: var(--muted);
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     letter-spacing: .1em;
     text-transform: uppercase;
   }
@@ -215,7 +218,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   body {
     background: var(--paper);
     color: var(--ink);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-weight: 300;
     line-height: 1.7;
     padding-bottom: 80px;
@@ -233,7 +236,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   }
 
   h1 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Baloo 2', sans-serif;
     font-size: clamp(30px, 5vw, 52px);
     font-weight: 700;
     line-height: 1.05;
@@ -265,7 +268,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   section:last-child { border-bottom: none; }
 
   .section-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 10px;
     letter-spacing: .2em;
     text-transform: uppercase;
@@ -274,7 +277,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   }
 
   h2 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Baloo 2', sans-serif;
     font-size: clamp(20px, 3.5vw, 30px);
     font-weight: 300;
     font-style: italic;
@@ -300,20 +303,21 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   .card {
     background: var(--white);
     border: 1px solid var(--rule);
-    border-top: 3px solid var(--green2);
+    border-radius: var(--radius);
     padding: 24px 22px 20px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 3px 14px rgba(42,33,24,.05);
     transition: transform .2s, box-shadow .2s;
   }
 
   .card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    box-shadow: 0 10px 26px rgba(42,33,24,.09);
   }
 
   .card-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'Baloo 2', sans-serif;
     font-size: 20px;
     font-weight: 700;
     color: var(--green);
@@ -341,20 +345,22 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
 
   .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 13px 20px;
     background: var(--green);
     color: white;
-    font-family: 'Outfit', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: .03em;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .01em;
     border: none;
+    border-radius: 999px;
     cursor: pointer;
     text-decoration: none;
-    transition: background .2s;
+    transition: background .2s, transform .15s;
     width: 100%;
     text-align: center;
   }
+  .btn:hover{ transform: translateY(-2px); }
 
   .btn:hover { background: var(--green2); }
 
@@ -369,7 +375,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   /* ── INCENTIVOS ── */
 
   .incentivo-msg {
-    font-family: 'Fraunces', serif;
+    font-family: 'Baloo 2', sans-serif;
     font-size: 17px;
     font-style: italic;
     color: var(--green);
@@ -377,14 +383,16 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     margin-top: 8px;
     padding: 16px 24px;
     border-left: 3px solid var(--gold);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     background: white;
+    box-shadow: 0 3px 12px rgba(42,33,24,.04);
   }
 
   /* ── FORMULÁRIO ── */
 
   label {
     display: block;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 10px;
     letter-spacing: .15em;
     text-transform: uppercase;
@@ -397,7 +405,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     padding: 11px 14px;
     border: 1px solid var(--rule);
     background: var(--paper);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 15px;
     color: var(--ink);
     outline: none;
@@ -444,7 +452,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   body {
     background: var(--paper);
     color: var(--ink);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-weight: 300;
     line-height: 1.7;
     padding-bottom: 80px;
@@ -462,7 +470,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   }
 
   h1 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Baloo 2', sans-serif;
     font-size: clamp(28px, 5vw, 50px);
     font-weight: 700;
     line-height: 1.05;
@@ -495,7 +503,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   section:last-child { border-bottom: none; }
 
   .section-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 10px;
     letter-spacing: .2em;
     text-transform: uppercase;
@@ -504,7 +512,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   }
 
   h2 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Baloo 2', sans-serif;
     font-size: clamp(20px, 3.5vw, 28px);
     font-weight: 300;
     font-style: italic;
@@ -529,12 +537,13 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     border-top: 3px solid var(--green2);
     padding: 24px 16px 20px;
     text-align: center;
+    border-radius: var(--radius-sm);
   }
 
   .ind-card.destaque { border-top-color: var(--gold); }
 
   .ind-num {
-    font-family: 'Fraunces', serif;
+    font-family: 'Baloo 2', sans-serif;
     font-size: clamp(28px, 5vw, 40px);
     font-weight: 700;
     color: var(--green);
@@ -548,7 +557,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   }
 
   .ind-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 10px;
     letter-spacing: .1em;
     text-transform: uppercase;
@@ -576,13 +585,17 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     display: flex;
     align-items: flex-start;
     gap: 14px;
+    border-radius: var(--radius-sm);
   }
 
   .medido-icon {
-    font-size: 32px;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--verde-claro);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px;
     line-height: 1;
     flex-shrink: 0;
-    margin-top: 2px;
+    box-shadow: 0 3px 10px rgba(42,33,24,.06);
   }
 
   .medido-text {
@@ -601,7 +614,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
 
   .medido-quote {
     margin-top: 24px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 12px;
     letter-spacing: .08em;
     color: var(--green2);
@@ -623,7 +636,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     grid-template-columns: 1fr 1fr 80px;
     padding: 10px 20px;
     background: var(--green);
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 10px;
     letter-spacing: .15em;
     text-transform: uppercase;
@@ -645,7 +658,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   .registro-row:hover { background: #f9f7f3; }
 
   .reg-origem {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 12px;
     color: var(--green2);
     letter-spacing: .05em;
@@ -654,7 +667,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   .reg-material { color: var(--ink); }
 
   .reg-volume {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 13px;
     color: var(--gold);
     font-weight: 500;
@@ -663,7 +676,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
 
   .registro-note {
     padding: 12px 20px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 10px;
     letter-spacing: .08em;
     color: var(--muted);
@@ -692,7 +705,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   }
 
   .final-quote {
-    font-family: 'Fraunces', serif;
+    font-family: 'Baloo 2', sans-serif;
     font-size: clamp(22px, 4vw, 36px);
     font-weight: 700;
     color: var(--green);
@@ -736,7 +749,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   body {
     background: var(--paper);
     color: var(--ink);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-weight: 300;
     line-height: 1.7;
     padding-bottom: 80px;
@@ -754,7 +767,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   }
 
   h1 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Baloo 2', sans-serif;
     font-size: clamp(28px, 5vw, 50px);
     font-weight: 700;
     line-height: 1.05;
@@ -783,7 +796,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   section:last-child { border-bottom: none; }
 
   .section-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 10px;
     letter-spacing: .2em;
     text-transform: uppercase;
@@ -792,7 +805,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   }
 
   h2 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Baloo 2', sans-serif;
     font-size: clamp(20px, 3.5vw, 28px);
     font-weight: 300;
     font-style: italic;
@@ -807,8 +820,10 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     margin-top: 24px;
     padding: 16px 22px;
     border-left: 4px solid var(--gold);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     background: var(--white);
-    font-family: 'Fraunces', serif;
+    box-shadow: 0 3px 12px rgba(42,33,24,.04);
+    font-family: 'Baloo 2', sans-serif;
     font-size: 16px;
     font-style: italic;
     color: var(--green);
@@ -829,16 +844,21 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     border-top: 3px solid var(--green2);
     padding: 20px 16px;
     text-align: center;
+    border-radius: var(--radius-sm);
   }
 
   .lugar-icon {
-    font-size: 36px;
-    margin-bottom: 10px;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--verde-claro);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px;
+    margin: 0 auto 10px;
     line-height: 1;
+    box-shadow: 0 3px 10px rgba(42,33,24,.06);
   }
 
   .lugar-title {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 10px;
     letter-spacing: .1em;
     text-transform: uppercase;
@@ -859,12 +879,13 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     background: var(--white);
     border: 1px solid var(--rule);
     overflow: hidden;
+    border-radius: var(--radius-sm);
   }
 
   .bloco-header {
     background: var(--green);
     padding: 14px 22px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 11px;
     letter-spacing: .15em;
     text-transform: uppercase;
@@ -902,11 +923,13 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     max-width: 340px;
     background: var(--white);
     border: 1px solid var(--rule);
+    border-radius: var(--radius-sm);
     padding: 14px 24px;
     text-align: center;
     font-size: 15px;
     color: var(--ink);
     font-weight: 400;
+    box-shadow: 0 2px 10px rgba(42,33,24,.04);
   }
 
   .fluxo-step.first {
@@ -922,7 +945,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   }
 
   .fluxo-arrow {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 20px;
     color: var(--green2);
     padding: 6px 0;
@@ -931,7 +954,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
 
   .fluxo-note {
     margin-top: 8px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 10px;
     letter-spacing: .08em;
     color: var(--muted);
@@ -949,10 +972,11 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     background: var(--white);
     border: 1px solid var(--rule);
     padding: 20px 18px;
+    border-radius: var(--radius-sm);
   }
 
   .territorio-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 10px;
     letter-spacing: .1em;
     text-transform: uppercase;
@@ -970,7 +994,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
   .final-section { padding: 64px 0 40px; }
 
   .final-quote {
-    font-family: 'Fraunces', serif;
+    font-family: 'Baloo 2', sans-serif;
     font-size: clamp(22px, 4vw, 36px);
     font-weight: 700;
     color: var(--green);
@@ -1086,7 +1110,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
 <!-- ============ QUERO PARTICIPAR ============ -->
 <div class="m2-page" id="page-participar">
 <div style="padding:16px 48px 0;max-width:900px;">
-  <button onclick="showPage('index')" style="background:none;border:none;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);cursor:pointer;padding:0;display:flex;align-items:center;gap:6px;transition:color .15s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">← Voltar ao início</button>
+  <button onclick="showPage('index')" style="background:none;border:none;font-family:'Nunito',sans-serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);cursor:pointer;padding:0;display:flex;align-items:center;gap:6px;transition:color .15s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">← Voltar ao início</button>
 </div>
 
 <header>
@@ -1107,7 +1131,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     <div class="section-label">Dá essa moral</div>
     <h2>Simples: começa na sua casa</h2>
 
-    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;justify-content:center;margin:24px 0;font-family:'DM Mono',monospace;font-size:13px;color:var(--green);font-weight:700;">
+    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;justify-content:center;margin:24px 0;font-family:'Nunito',sans-serif;font-size:13px;color:var(--green);font-weight:700;">
       <span>🏠 Sua casa</span><span style="color:var(--gold);">→</span>
       <span>🧼 Higienizar</span><span style="color:var(--gold);">→</span>
       <span>☀️ Secar</span><span style="color:var(--gold);">→</span>
@@ -1129,7 +1153,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     <h2>Quando você participa, você ganha quatro <span style="text-transform:uppercase;">vezes</span></h2>
 
     <div class="cards" style="grid-template-columns:1fr;max-width:520px;">
-      <div class="card" style="border-top-color:var(--gold);">
+      <div class="card" style="border-top:3px solid var(--gold);">
         <ul class="card-list">
           <li>🏠 <span style="text-transform:uppercase;">Sua</span> casa</li>
           <li>👧 O lugar onde suas crianças BRINCAM</li>
@@ -1154,13 +1178,13 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     </div>
 
     <div class="cards">
-      <div class="card" style="border-top-color:var(--gold);">
+      <div class="card" style="border-top:3px solid var(--gold);">
         <div class="card-title">Quero PARTICIPAR</div>
         <div class="card-btn">
           <button class="btn" onclick="window.open('https://forms.gle/osPK7X7X321sRawd7','_blank')">Entrar como usuário</button>
         </div>
       </div>
-      <div class="card" style="border-top-color:var(--gold);">
+      <div class="card" style="border-top:3px solid var(--gold);">
         <div class="card-title">Parceiros <span style="font-size:14px;font-weight:300;">(pessoa física ou jurídica)</span></div>
         <div class="card-btn">
           <button class="btn btn-outline" onclick="window.open('https://wa.me/5521981230856?text=Ol%C3%A1%2C%20quero%20apoiar%20o%20M2','_blank')">Quero apoiar o M2</button>
@@ -1177,22 +1201,22 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     <div style="display:flex;align-items:flex-start;justify-content:center;gap:6px;flex-wrap:wrap;margin:24px 0;">
       <div style="text-align:center;">
         <div class="pgm-icon pgm-pega" style="margin:0 auto 6px;"></div>
-        <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--gold);font-weight:700;">PEGA</div>
+        <div style="font-family:'Nunito',sans-serif;font-size:11px;letter-spacing:.08em;color:var(--gold);font-weight:700;">PEGA</div>
       </div>
       <div style="color:var(--gold);font-size:20px;margin-top:16px;">→</div>
       <div style="text-align:center;">
         <div class="pgm-icon pgm-man" style="margin:0 auto 6px;"></div>
-        <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--gold);font-weight:700;">MAN</div>
+        <div style="font-family:'Nunito',sans-serif;font-size:11px;letter-spacing:.08em;color:var(--gold);font-weight:700;">MAN</div>
       </div>
       <div style="color:var(--gold);font-size:20px;margin-top:16px;">→</div>
       <div style="text-align:center;">
         <div class="pgm-icon pgm-seja" style="margin:0 auto 6px;"></div>
-        <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--gold);font-weight:700;">SEJA</div>
+        <div style="font-family:'Nunito',sans-serif;font-size:11px;letter-spacing:.08em;color:var(--gold);font-weight:700;">SEJA</div>
       </div>
       <div style="color:var(--gold);font-size:20px;margin-top:16px;">→</div>
       <div style="text-align:center;">
         <div class="pgm-icon pgm-lider" style="margin:0 auto 6px;"></div>
-        <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--gold);font-weight:700;">LÍDER</div>
+        <div style="font-family:'Nunito',sans-serif;font-size:11px;letter-spacing:.08em;color:var(--gold);font-weight:700;">LÍDER</div>
       </div>
     </div>
 
@@ -1215,7 +1239,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
 <!-- ============ MAIS DETALHES ============ -->
 <div class="m2-page" id="page-detalhes">
 <div style="padding:16px 48px 0;max-width:900px;">
-  <button onclick="showPage('index')" style="background:none;border:none;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);cursor:pointer;padding:0;display:flex;align-items:center;gap:6px;transition:color .15s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">← Voltar ao início</button>
+  <button onclick="showPage('index')" style="background:none;border:none;font-family:'Nunito',sans-serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);cursor:pointer;padding:0;display:flex;align-items:center;gap:6px;transition:color .15s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">← Voltar ao início</button>
 </div>
 
 <header>
@@ -1237,19 +1261,19 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
 
     <div class="indicadores">
       <div class="ind-card">
-        <div style="font-size:20px;">👥</div><div class="ind-num">108</div>
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--verde-claro);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 8px;box-shadow:0 3px 10px rgba(42,33,24,.06);">👥</div><div class="ind-num">108</div>
         <div class="ind-label">pessoas<br>ativas</div>
       </div>
       <div class="ind-card ind-zero">
-        <div style="font-size:20px;">💪</div><div class="ind-num ind-zero">0</div>
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--gold-claro);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 8px;box-shadow:0 3px 10px rgba(42,33,24,.06);">💪</div><div class="ind-num ind-zero">0</div>
         <div class="ind-label">abandono<br>registrado</div>
       </div>
       <div class="ind-card">
-        <div style="font-size:20px;">♻️</div><div class="ind-num">5.143<div class="ind-unit">kg</div></div>
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--verde-claro);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 8px;box-shadow:0 3px 10px rgba(42,33,24,.06);">♻️</div><div class="ind-num">5.143<div class="ind-unit">kg</div></div>
         <div class="ind-label">material<br>recuperado</div>
       </div>
       <div class="ind-card destaque">
-        <div style="font-size:20px;">⏱️</div><div class="ind-num">22<div class="ind-unit">meses</div></div>
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--gold-claro);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 8px;box-shadow:0 3px 10px rgba(42,33,24,.06);">⏱️</div><div class="ind-num">22<div class="ind-unit">meses</div></div>
         <div class="ind-label">rodando<br>sem parar</div>
       </div>
     </div>
@@ -1332,7 +1356,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     </div>
 
     <div style="margin-top:32px;padding:20px 24px;border-left:4px solid var(--gold);background:var(--white);">
-      <p style="font-family:'Fraunces',serif;font-size:17px;font-style:italic;color:var(--green);line-height:1.5;">
+      <p style="font-family:'Baloo 2',sans-serif;font-size:17px;font-style:italic;color:var(--green);line-height:1.5;">
         Nenhum outro sistema atual mede isso<br>sem entrar dentro de casa.
       </p>
     </div>
@@ -1418,6 +1442,97 @@ body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;fo
     </div>
 
     <div class="msg">"Vai crescendo onde a coisa já tá pegando."</div>
+  </section>
+
+  <!-- POR QUE ISSO IMPORTA PRA CIDADE -->
+  <section>
+    <div class="section-label">Como uma ação vira impacto</div>
+    <h2>Um cuidado. Seis ganhos.</h2>
+    <p>Quando você faz o HSS em casa, uma coisa boa puxa a outra.</p>
+
+    <div class="medido-grid" style="margin-top:20px;">
+      <div class="medido-item">
+        <div class="medido-icon">🧼</div>
+        <div><div class="medido-text">Fica limpo <span style="font-size:10px;color:var(--muted);font-weight:400;">C1</span></div><div class="medido-sub">não suja, não estraga</div></div>
+      </div>
+      <div class="medido-item">
+        <div class="medido-icon">⏳</div>
+        <div><div class="medido-text">Pode esperar <span style="font-size:10px;color:var(--muted);font-weight:400;">C2</span></div><div class="medido-sub">não precisa jogar correndo</div></div>
+      </div>
+      <div class="medido-item">
+        <div class="medido-icon">🗂️</div>
+        <div><div class="medido-text">Já vem separado <span style="font-size:10px;color:var(--muted);font-weight:400;">C3</span></div><div class="medido-sub">quem recebe não cata de novo</div></div>
+      </div>
+      <div class="medido-item">
+        <div class="medido-icon">🤝</div>
+        <div><div class="medido-text">Gera confiança <span style="font-size:10px;color:var(--muted);font-weight:400;">C4</span></div><div class="medido-sub">quem compra confia no que vem daqui</div></div>
+      </div>
+      <div class="medido-item">
+        <div class="medido-icon">💰</div>
+        <div><div class="medido-text">Vale mais <span style="font-size:10px;color:var(--muted);font-weight:400;">C5</span></div><div class="medido-sub">o material chega mais valioso na ponta</div></div>
+      </div>
+    </div>
+
+    <div class="msg" style="margin-top:24px;">Até aqui, dá pra apontar o material — a garrafa, o saco. O próximo ganho é diferente.</div>
+
+    <div style="margin-top:40px;padding:20px;background:var(--gold-claro);border-radius:var(--radius);text-align:center;">
+      <div class="medido-icon" style="margin:0 auto 10px;">🏙️</div>
+      <div class="medido-text" style="font-size:17px;">Protege o que a gente não vê <span style="font-size:11px;color:var(--gold-muted);font-weight:700;">C6 · CIDADE</span></div>
+      <div class="medido-sub" style="margin-top:4px;">sua casa não perde valor</div>
+    </div>
+    <div class="msg" style="margin-top:16px;">Esse ganho não tem resíduo pra mostrar — é o problema que deixa de acontecer. A cidade nunca fica parada: ela pende pra um lado, cuidada, ou largada.</div>
+
+    <h2 style="margin-top:48px;">O que move essa balança?</h2>
+    <p>Quanto mais gente participa, mais a cidade pende pro lado bom.</p>
+
+    <div style="display:flex;justify-content:center;margin:24px 0;">
+      <svg width="280" height="140" viewBox="0 0 280 140">
+        <polygon points="120,120 160,120 140,90" fill="var(--muted)" opacity="0.4"/>
+        <g transform="rotate(-7 140 90)">
+          <rect x="30" y="86" width="220" height="8" rx="4" fill="var(--ink)"/>
+          <circle cx="55" cy="76" r="26" fill="var(--verde-claro)"/>
+          <text x="55" y="72" text-anchor="middle" font-family="Nunito" font-size="10" font-weight="700" fill="var(--green)">CUIDADA</text>
+          <text x="55" y="86" text-anchor="middle" font-family="Nunito" font-size="14">🌳</text>
+          <circle cx="225" cy="100" r="26" fill="var(--gold-claro)"/>
+          <text x="225" y="96" text-anchor="middle" font-family="Nunito" font-size="10" font-weight="700" fill="var(--gold-muted)">LARGADA</text>
+          <text x="225" y="110" text-anchor="middle" font-family="Nunito" font-size="14">🏚️</text>
+        </g>
+      </svg>
+    </div>
+
+    <h2 style="margin-top:48px;">Quem move a balança</h2>
+    <p>Não é só a sua casa. O cuidado se espalha — de você até a cidade.</p>
+
+    <div class="lugares" style="margin-top:8px;">
+      <div class="lugar-item"><div class="lugar-icon">🧍</div><div class="lugar-title">Você</div></div>
+      <div class="lugar-item"><div class="lugar-icon">🏠</div><div class="lugar-title">Sua<br>casa</div></div>
+      <div class="lugar-item"><div class="lugar-icon">🛣️</div><div class="lugar-title">Sua<br>rua</div></div>
+      <div class="lugar-item"><div class="lugar-icon">🏙️</div><div class="lugar-title">Sua<br>cidade</div></div>
+    </div>
+
+    <h2 style="margin-top:48px;">Como esse efeito cresce</h2>
+    <p>Igual onda em lago: quanto mais gente participa, mais longe o efeito chega.</p>
+
+    <div style="display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin:24px 0;">
+      <svg width="150" height="130" viewBox="0 0 150 130">
+        <circle cx="75" cy="70" r="6" fill="var(--green2)"/>
+        <circle cx="75" cy="70" r="20" fill="none" stroke="var(--green2)" stroke-width="2" opacity="0.5"/>
+        <circle cx="75" cy="70" r="34" fill="none" stroke="var(--green2)" stroke-width="2" opacity="0.25"/>
+        <text x="75" y="118" text-anchor="middle" font-family="Nunito" font-size="12" font-weight="700" fill="var(--muted)">uma pessoa</text>
+      </svg>
+      <svg width="150" height="130" viewBox="0 0 150 130">
+        <circle cx="75" cy="70" r="8" fill="var(--gold)"/>
+        <circle cx="75" cy="70" r="26" fill="none" stroke="var(--gold)" stroke-width="2.5" opacity="0.6"/>
+        <circle cx="75" cy="70" r="42" fill="none" stroke="var(--gold)" stroke-width="2.5" opacity="0.4"/>
+        <circle cx="75" cy="70" r="58" fill="none" stroke="var(--gold)" stroke-width="2.5" opacity="0.2"/>
+        <text x="75" y="122" text-anchor="middle" font-family="Nunito" font-size="12" font-weight="700" fill="var(--muted)">uma comunidade</text>
+      </svg>
+    </div>
+
+    <div class="final-quote" style="margin-top:40px;font-size:19px;">
+      Uma decisão nunca termina na pessoa.
+      <span>Ela atravessa a rua, move a balança, e muda a cidade.</span>
+    </div>
   </section>
 
   <!-- POSICIONAMENTO -->
