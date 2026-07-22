@@ -46,7 +46,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Nunito',sans-serif;fo
 .hero h1 em{font-weight:300;font-style:italic;color:var(--green2);}
 .hero-sub{font-size:17px;color:var(--muted);max-width:480px;line-height:1.7;margin-bottom:0;}
 .hero-sub strong{color:var(--ink);font-weight:400;}
-.index-cards{max-width:900px;margin:0 auto;padding:56px 48px 80px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.index-cards{max-width:900px;margin:0 auto;padding:56px 48px 80px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .index-card{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);padding:28px 24px 24px;cursor:pointer;box-shadow:0 3px 14px rgba(42,33,24,.05);transition:transform .2s,box-shadow .2s;}
 .index-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(42,33,24,.09);}
 .index-card.gold{background:var(--gold-claro);border-color:var(--gold);}
@@ -1115,29 +1115,22 @@ body{background:var(--paper);color:var(--ink);font-family:'Nunito',sans-serif;fo
     <div class="index-card gold" onclick="showPage('participar')">
       <div class="ic-icon">🚪</div>
       <div class="ic-title">Quero<br>PARTICIPAR</div>
-      <div class="ic-desc">Comece pela <b style="color:var(--gold);">SUA CASA</b>.</div>
+      <div class="ic-desc">Comece pela <b style="color:var(--gold);">SUA Casa</b>.</div>
       <div class="ic-punch">Entre <b style="color:var(--gold);">e Lidere</b></div>
       <div class="ic-cta">Entrar agora →</div>
     </div>
-    <div class="index-card" onclick="goToSection('participar','fluxo')">
-      <div class="ic-icon">♻️</div>
-      <div class="ic-title">Como<br>funciona</div>
-      <div class="ic-desc"><b style="color:var(--gold);font-size:1.15em;">HSS</b><br>🧼 Higienizar<br>☀️ Secar<br>🗂️ Separar</div>
-      <div class="ic-punch">→ Volta a ter <b style="color:var(--gold);">VALOR</b></div>
-      <div class="ic-cta">Ver como funciona →</div>
-    </div>
     <div class="index-card" onclick="showPage('detalhes')">
       <div class="ic-icon">📊</div>
-      <div class="ic-title">Mais<br>Detalhes</div>
+      <div class="ic-title">Transformação</div>
       <div class="ic-desc">Dados reais. Resultados reais.<br>108 pessoas · 5.143 kg · 22 meses.</div>
-      <div class="ic-punch"><b style="color:var(--gold);">UÉ,</b> então por que ninguém fez isso <b style="color:var(--gold);">antes?</b></div>
+      <div class="ic-punch">Qual diferença faz usar esse método <b style="color:var(--gold);">em casa?</b></div>
       <div class="ic-cta">Ver detalhes →</div>
     </div>
-    <div class="index-card" onclick="goToSection('participar','pegaman')" style="background:var(--gold-claro);border-color:var(--gold);">
-      <div class="ic-icon" style="background:var(--white);">🏆</div>
+    <div class="index-card" onclick="goToSection('detalhes','pegaman')" style="background:var(--gold-claro);border-color:var(--gold);">
       <div class="ic-title">PEGA<br>MAN</div>
-      <div class="ic-desc">Seu comportamento vira <b style="color:var(--gold-muted);">SÍMBOLO</b>.</div>
-      <div class="ic-punch">Conquiste seu lugar no <b style="color:var(--gold-muted);">Ranking</b></div>
+      <div class="ic-desc">Ao invés de <b style="color:var(--gold-muted);">caôzada</b>,<br>Vamo de <b style="color:var(--gold-muted);">Melhoria</b>, filho!</div>
+      <img src="assets/images/pegaman-oficial.webp" loading="lazy" alt="PEGA MAN, mascote oficial do M2" style="width:78%;height:auto;display:block;margin:14px auto 16px;">
+      <div class="ic-punch">Quem vira líder, aparece no <b style="color:var(--gold-muted);">Ranking</b></div>
       <div class="ic-cta">Conhecer →</div>
     </div>
   </div>
@@ -1262,13 +1255,13 @@ body{background:var(--paper);color:var(--ink);font-family:'Nunito',sans-serif;fo
 
   <!-- CADASTRO -->
   <section>
-    <div class="section-label" style="font-size:23px;font-weight:700;letter-spacing:.28em;">Cadastro</div>
+    <div class="section-label" style="font-size:23px;font-weight:700;letter-spacing:.28em;">📝 CADASTRO</div>
 
     <div class="cards">
       <div class="card" style="border-top:3px solid var(--gold);">
         <div class="card-title">Quero PARTICIPAR</div>
         <div class="card-btn">
-          <button class="btn" onclick="window.open('https://forms.gle/osPK7X7X321sRawd7','_blank')">Entrar como usuário</button>
+          <button class="btn" onclick="window.open('https://forms.gle/osPK7X7X321sRawd7','_blank')">✍️ Me cadastrar</button>
         </div>
       </div>
       <div class="card" style="border-top:3px solid var(--gold);">
@@ -1301,12 +1294,6 @@ body{background:var(--paper);color:var(--ink);font-family:'Nunito',sans-serif;fo
         </ul>
       </div>
     </div>
-  </section>
-
-  <!-- DESBLOQUEANDO O PEGA MAN -->
-  <section id="pegaman">
-    <div class="section-label" style="font-size:23px;font-weight:700;letter-spacing:.28em;">Desbloqueando o PEGA MAN</div>
-    <img src="assets/images/pegaman-ranking.webp" loading="lazy" alt="Organizador PEGA MAN não é um papel novo. É consequência da correria. Quanto maior sua pontuação, maior a chance de você entrar no Ranking e virar PEGA MAN. Se vacilou no Ranking, é porque estava na hora de passar a vaga pro próximo." style="display:block;width:100%;height:auto;margin-top:16px;">
   </section>
 
   <!-- FRASE FINAL -->
@@ -1382,6 +1369,11 @@ body{background:var(--paper);color:var(--ink);font-family:'Nunito',sans-serif;fo
   <section>
     <div class="section-label" style="font-size:23px;font-weight:700;letter-spacing:.28em;">Mas... só eu vou fazer alguma diferença?</div>
     <img src="assets/images/cidade-conservacao-colapso.webp" loading="lazy" alt="Cidade, Sua Decisão — Conservação × Colapso: quem move essa balança? Todos nós" style="width:100%;height:auto;border-radius:var(--radius);margin-top:8px;box-shadow:0 4px 16px rgba(42,33,24,.08);">
+  </section>
+
+  <!-- FRASE DE TRANSIÇÃO: UÉ -->
+  <section style="padding:24px 0;">
+    <div style="text-align:center;font-family:'Baloo 2',sans-serif;font-size:clamp(22px,4vw,28px);font-weight:700;line-height:1.3;"><b style="color:var(--gold);">UÉ,</b> <span style="color:var(--green);">então por que ninguém fez isso</span> <b style="color:var(--gold);">antes?</b></div>
   </section>
 
   <!-- BLOCO 3: POSICIONAMENTO -->
@@ -1487,10 +1479,16 @@ body{background:var(--paper);color:var(--ink);font-family:'Nunito',sans-serif;fo
 
   <!-- BLOCO 7: SEIS LETRAS C -->
   <section style="padding:36px 0 24px;">
-    <div class="section-label" style="font-size:23px;font-weight:700;letter-spacing:.28em;">Por que faz diferença usar esse método na nossa casa?</div>
+    <div class="section-label" style="font-size:23px;font-weight:700;letter-spacing:.28em;">Qual diferença faz usar esse método em casa?</div>
     <p style="margin-top:12px;">Porque esse <b>MÉTODO</b>... sendo usado <b style="color:var(--gold);">DENTRO</b> de casa, ele desbloqueia essas <b>SEIS LETRAS C's</b>.</p>
 
     <img src="assets/images/nossas-6-letras-cs.webp" loading="lazy" alt="Nossas 6 Letras C's — Contaminação, Coleta, Classificação, Confiança, Cotação, Cidade: da 1ª à 5ª letra C transformamos o resíduo, no 6º C transformamos a cidade" style="width:100%;height:auto;border-radius:var(--radius);margin-top:10px;box-shadow:0 4px 16px rgba(42,33,24,.08);">
+  </section>
+
+  <!-- DESBLOQUEANDO O PEGA MAN -->
+  <section id="pegaman" style="padding-top:24px;">
+    <div class="section-label" style="font-size:23px;font-weight:700;letter-spacing:.28em;">Desbloqueando o PEGA MAN</div>
+    <img src="assets/images/pegaman-ranking.webp" loading="lazy" alt="Organizador PEGA MAN não é um papel novo. É consequência da correria. Quanto maior sua pontuação, maior a chance de você entrar no Ranking e virar PEGA MAN. Se vacilou no Ranking, é porque estava na hora de passar a vaga pro próximo." style="display:block;width:100%;height:auto;margin-top:16px;">
   </section>
 
   <!-- BLOCO 8: RANKING -->
